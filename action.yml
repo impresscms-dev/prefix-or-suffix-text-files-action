@@ -1,0 +1,21 @@
+name: 'Prefix or Suffix Text files'
+description: "GitHub action to prefix or suffix text to files in selected folder"
+branding:
+  icon: type
+  color: orange
+
+inputs:
+  path:
+    description: Where to look for files to do operation
+    required: true
+  text:
+    description: Text to use for the operation
+    required: true
+  suffix:
+    description: If is set to true, this action will suffix files with selected text, otherwise will prefix
+    required: false
+    default: 'false'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
