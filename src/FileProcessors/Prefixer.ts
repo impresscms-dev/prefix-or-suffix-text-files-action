@@ -5,6 +5,7 @@ class Prefixer implements FileProcessorInterface {
 
   process(contents: string, newLines: string): string {
     return newLines
+        .concat("\n")
         .concat(contents)
         .split(/\n/g)
         .map(line => line.trimRight())

@@ -13,6 +13,7 @@ class Suffixer implements FileProcessorInterface {
       .map(line => line.trimRight())
 
     return lines1
+      .concat("\n")
       .concat(lines2)
       .join(EOL)
   }
