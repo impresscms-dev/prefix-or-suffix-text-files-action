@@ -1,8 +1,4 @@
-
-
-
-[!
-[License](https://img.shields.io/github/license/impresscms-dev/prefix-or-suffix-text-files-action.svg)](LICENSE)
+[![License](https://img.shields.io/github/license/impresscms-dev/prefix-or-suffix-text-files-action.svg)](LICENSE)
 [![GitHub release](https://img.shields.io/github/release/impresscms-dev/prefix-or-suffix-text-files-action.svg)](https://github.com/impresscms-dev/prefix-or-suffix-text-files-action/releases)
 
 # Prefix or Suffix Text files
@@ -45,7 +41,7 @@ jobs:
           output_path: ./docs/
           
       - name: Prefixing docs...
-        uses: impresscms-dev/prefix-or-suffix-text-files-action@v0.1.2
+        uses: impresscms-dev/prefix-or-suffix-text-files-action@v1.0.0
         with:
           path: ./docs/
           text: |
