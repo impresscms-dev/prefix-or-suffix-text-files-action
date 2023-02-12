@@ -8,6 +8,30 @@ on:
 permissions: write-all
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version:
+          - 16.x
+    steps:
+      - name: Checkouting code...
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: NPM install
+        run: npm install
+
+      - name: Test
+        run: npm run test
+
   build:
 
     runs-on: ubuntu-latest
@@ -70,7 +94,7 @@ jobs:
           name: build
           path: dist/
           
-      - name: Auto commiting changes...
+      - name: Auto committing changes...
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Automatically builded and updated
