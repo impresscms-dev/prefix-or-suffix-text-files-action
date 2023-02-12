@@ -1,4 +1,8 @@
-[![License](https://img.shields.io/github/license/impresscms-dev/prefix-or-suffix-text-files-action.svg)](LICENSE)
+
+
+
+[!
+[License](https://img.shields.io/github/license/impresscms-dev/prefix-or-suffix-text-files-action.svg)](LICENSE)
 [![GitHub release](https://img.shields.io/github/release/impresscms-dev/prefix-or-suffix-text-files-action.svg)](https://github.com/impresscms-dev/prefix-or-suffix-text-files-action/releases)
 
 # Prefix or Suffix Text files
