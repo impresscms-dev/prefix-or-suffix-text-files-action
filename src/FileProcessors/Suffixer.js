@@ -1,12 +1,10 @@
 import {FileProcessorInterface} from "./FileProcessorInterface"
 import {EOL} from "os"
 
-class Suffixer implements FileProcessorInterface {
+export default class Suffixer extends FileProcessorInterface {
 
-  process(contents: string, newLines: string): string {
+  process(contents, newLines) {
     return `${contents}${EOL}${newLines}`
   }
 
 }
-
-export default Suffixer

@@ -7,9 +7,9 @@ const fakeTextGenerator = new LoremIpsum()
 test("Prefixer", () => {
     const instance = new Prefixer()
 
-    const oldText: string = fakeTextGenerator.generateParagraphs(10)
-    const prefix: string = fakeTextGenerator.generateSentences(1)
-    const newText: string = instance.process(oldText, prefix)
+    const oldText = fakeTextGenerator.generateParagraphs(10)
+    const prefix = fakeTextGenerator.generateSentences(1)
+    const newText = instance.process(oldText, prefix)
 
     expect(newText)
         .toMatch(prefix + EOL + oldText)
