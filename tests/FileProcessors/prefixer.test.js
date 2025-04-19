@@ -13,4 +13,4 @@ test("Prefixer", () => {
 
     expect(newText)
         .toMatch(prefix + EOL + oldText)
-});
+})

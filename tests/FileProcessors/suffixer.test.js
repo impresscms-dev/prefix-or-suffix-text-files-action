@@ -13,4 +13,4 @@ test("Suffixer", () => {
 
     expect(newText)
         .toMatch(oldText + EOL + suffix)
-});
+})
