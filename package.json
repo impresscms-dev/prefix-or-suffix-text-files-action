@@ -1,6 +1,5 @@
 {
   "name": "prefix-or-suffix-text-files-action",
-  "version": "1.1.0",
   "description": "GitHub action to prefix or suffix text to files in selected folder.",
   "main": "src/index.js",
   "type": "module",
@@ -12,7 +11,7 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "format": "prettier --write **/*.js",
     "format-check": "prettier --check **/*.js",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint --no-warn-ignored 'src/**/*.js' 'tests/**/*.js'",
     "pack": "ncc build src/index.js --minify",
     "all": "npm install && npm run format && npm run lint && npm run pack",
     "fast-all": "npm install && npm run pack"
