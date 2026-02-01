@@ -26,7 +26,7 @@
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^2.0.1",
-    "@actions/github": "^6.0.1",
+    "@actions/github": "^9.0.0",
     "lorem-ipsum": "^2.0.8",
     "recursive-readdir-sync": "^1.0.6"
   },
