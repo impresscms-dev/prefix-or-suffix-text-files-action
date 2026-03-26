@@ -41,7 +41,7 @@ jobs:
           output_path: ./docs/
 
       - name: Prefixing docs...
-        uses: impresscms-dev/prefix-or-suffix-text-files-action@v2.0.0
+        uses: impresscms-dev/prefix-or-suffix-text-files-action@v2
         with:
           path: ./docs/
           text: |
