@@ -11,7 +11,7 @@
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "format": "prettier --write **/*.js",
     "format-check": "prettier --check **/*.js",
-    "lint": "eslint --no-warn-ignored 'src/**/*.js' 'tests/**/*.js'",
+    "lint": "eslint --no-warn-ignored \"src/**/*.js\" \"tests/**/*.js\"",
     "pack": "ncc build src/index.js --minify",
     "all": "npm install && npm run format && npm run lint && npm run pack",
     "fast-all": "npm install && npm run pack"
@@ -31,9 +31,9 @@
     "recursive-readdir-sync": "^1.0.6"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^10.0.1",
     "@vercel/ncc": "^0.38.4",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "eslint-plugin-github": "^6.0.0",
     "eslint-plugin-jest": "^29.15.0",
     "jest": "^30.2.0",
