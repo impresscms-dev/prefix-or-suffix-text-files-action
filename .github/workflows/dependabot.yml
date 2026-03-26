@@ -31,9 +31,41 @@ jobs:
           script: |
             const pullRequest = context.payload.workflow_run.pull_requests[0]
             const repository = context.repo
-            await github.rest.pulls.merge({
-              merge_method: "merge",
-              owner: repository.owner,
-              pull_number: pullRequest.number,
-              repo: repository.repo,
-            })
+            const maxAttempts = 12
+            const delayMs = 10000
+
+            for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+              const { data: currentPr } = await github.rest.pulls.get({
+                owner: repository.owner,
+                pull_number: pullRequest.number,
+                repo: repository.repo,
+              })
+
+              core.info(
+                `Attempt ${attempt}/${maxAttempts}: mergeable=${currentPr.mergeable} mergeable_state=${currentPr.mergeable_state}`
+              )
+
+              if (currentPr.mergeable === true) {
+                await github.rest.pulls.merge({
+                  merge_method: "merge",
+                  owner: repository.owner,
+                  pull_number: pullRequest.number,
+                  repo: repository.repo,
+                })
+
+                core.info(`PR #${pullRequest.number} merged successfully`)
+                return
+              }
+
+              if (currentPr.mergeable === false) {
+                throw new Error(
+                  `PR #${pullRequest.number} is not mergeable (state: ${currentPr.mergeable_state})`
+                )
+              }
+
+              await new Promise((resolve) => setTimeout(resolve, delayMs))
+            }
+
+            throw new Error(
+              `Timed out waiting for PR #${pullRequest.number} to become mergeable`
+            )
